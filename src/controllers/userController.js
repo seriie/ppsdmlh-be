@@ -6,8 +6,7 @@ exports.getAllUsers = async (req, res) => {
     try {
         const users = await prisma.users.findMany();
         res.json(users.map(u => ({
-            ...u,
-            createdAt: formDate(u.created_at)
+            ...u
         })));
     } catch (e) {
         res.status(500).json({ error: e.message });

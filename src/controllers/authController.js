@@ -37,8 +37,8 @@ exports.register = async (req, res) => {
         message: "Register success",
         user: { id: user.id, fullname: user.fullname, email: user.email },
       });
-  } catch (e) {
-    console.error(e);
+    } catch (e) {
+      console.error(e);
     res.status(500).json({ error: "Internal server error!" });
   }
 };
@@ -65,7 +65,11 @@ exports.login = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    res.status(200).json({ id: user.id, email: user.email, token });
+    if (user && validPw) {
+      res.status(200).json({ id: user.id, email: user.email, token });
+      console.log("login successful")
+    }
+    
   } catch (e) {
     console.error(e.message);
     res.status(500).json({ error: "Internal server error!" });
