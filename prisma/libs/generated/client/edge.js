@@ -147,6 +147,14 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "windows"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -173,8 +181,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"./libs/generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\n/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.\nmodel users {\n  id         String    @id @db.VarChar\n  created_at DateTime  @default(now()) @db.Timestamptz(6)\n  fullname   String    @db.VarChar\n  email      String    @unique @db.VarChar\n  password   String    @db.VarChar\n  updated_at DateTime? @db.Timestamp(6)\n  role       role?     @default(user)\n}\n\nenum role {\n  user\n  admin\n  owner\n}\n",
-  "inlineSchemaHash": "92a132f55b3ce43851d3766876f9631a0f321dd0787a44358e72d9bb9087e800",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./libs/generated/client\"\n  binaryTargets = [\"native\", \"windows\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\n/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.\nmodel users {\n  id         String    @id @db.VarChar\n  created_at DateTime  @default(now()) @db.Timestamptz(6)\n  fullname   String    @db.VarChar\n  email      String    @unique @db.VarChar\n  password   String    @db.VarChar\n  updated_at DateTime? @db.Timestamp(6)\n  role       role?     @default(user)\n}\n\nenum role {\n  user\n  admin\n  owner\n}\n",
+  "inlineSchemaHash": "4245cfb974093949f5295910045c529f0b06a5c49a0ff1b44f2bebeaa01514b1",
   "copyEngine": true
 }
 config.dirname = '/'
