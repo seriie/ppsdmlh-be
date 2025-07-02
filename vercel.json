@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "npx prisma generate && next build",
   "builds": [
     {
       "src": "api/index.js",
@@ -9,7 +10,6 @@
           "prisma/schema.prisma"
         ]
       },
-      "buildsCommand": "npx prisma generate && next build"
     }
   ],
   "routes": [
