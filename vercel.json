@@ -9,7 +9,7 @@
         "includeFiles": [
           "prisma/schema.prisma"
         ]
-      },
+      }
     }
   ],
   "routes": [

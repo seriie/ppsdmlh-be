@@ -4,4 +4,4 @@
 .env
 
 generated/prisma
-.http
+api.http
