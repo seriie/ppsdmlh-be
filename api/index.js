@@ -12,6 +12,10 @@ app.use(cors());
 
 app.use('/users', userRoutes);
 
-if(process.env.ENV_NODE != 'production') return app.listen(port, () => { console.log(`Server running on http://localhost:${port}`) });
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+  });
+}
 
 module.exports = app;
