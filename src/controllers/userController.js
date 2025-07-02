@@ -39,3 +39,17 @@ exports.updateUsers = async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 };
+
+exports.getUsers = async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+    const user = await prisma.users.findFirst({
+      where: { id: userId }
+    });
+
+    res.status(200).send(user);
+  } catch (e) {
+    res.status(500).json({ message: "Error getting user data with id" + userId });
+  }
+}
